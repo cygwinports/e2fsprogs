@@ -1,0 +1,24 @@
+DESCRIPTION="Ext2 filesystem utilities"
+HOMEPAGE="http://e2fsprogs.sourceforge.net/"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+
+CYGCONF_ARGS="
+	--disable-elf-shlibs
+	--disable-bsd-shlibs
+	--disable-profile
+	--disable-checker
+	--disable-jbd-debug
+	--disable-blkid-debug
+	--disable-testio-debug
+"
+
+src_install() {
+	cd ${B}
+	cyginstall install-libs
+
+	dodir /usr/include/${PN}
+	mv ${D}/usr/include/ss ${D}/usr/include/${PN}/ss
+
+	dodir /usr/lib/${PN}
+	mv ${D}/usr/lib/lib{com_err,ss,uuid}.a ${D}/usr/lib/${PN}/
+}

@@ -1,0 +1,6 @@
+category: System Utils
+requires: cygwin ioperm libintl8
+sdesc: "Ext2 filesystem utilities"
+ldesc: "The Ext2 Filesystem Utilities contain all of the standard 
+utilities for creating, fixing, configuring, and debugging ext2 
+filesystems."
