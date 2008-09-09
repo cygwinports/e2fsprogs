@@ -168,4 +168,4 @@ Moved some headers and libs to avoid conflicts with heimdal.
 
 
 Cygwin port maintained by:
-http://cygwinports.dotsrc.org/
+http://sourceware.org/cygwinports/
