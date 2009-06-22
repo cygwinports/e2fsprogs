@@ -1,0 +1,7 @@
+category: System 
+requires: libblkid1 libuuid-devel
+external-source: e2fsprogs
+sdesc: "Block device ID library (development)"
+ldesc: "The Ext2 Filesystem Utilities contain all of the standard 
+utilities for creating, fixing, configuring, and debugging ext2/3/4 
+filesystems."

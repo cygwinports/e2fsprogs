@@ -1,0 +1,7 @@
+category: System 
+requires: libcom_err2
+external-source: e2fsprogs
+sdesc: "Common error description library (development)"
+ldesc: "The Ext2 Filesystem Utilities contain all of the standard 
+utilities for creating, fixing, configuring, and debugging ext2/3/4 
+filesystems."

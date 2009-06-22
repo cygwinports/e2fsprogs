@@ -1,0 +1,7 @@
+category: System 
+requires: libe2p2
+external-source: e2fsprogs
+sdesc: "Ext2fs programs utility library (development)"
+ldesc: "The Ext2 Filesystem Utilities contain all of the standard 
+utilities for creating, fixing, configuring, and debugging ext2/3/4 
+filesystems."
