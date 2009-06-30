@@ -27,20 +27,33 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack e2fsprogs-1.41.6-X-src.tar.bz2
+  unpack e2fsprogs-1.41.7-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./e2fsprogs-1.41.6-X.cygport all
+  cygport ./e2fsprogs-1.41.7-X.cygport all
 
 This will create:
-  /usr/src/e2fsprogs-1.41.6-X-src.tar.bz2
-  /usr/src/e2fsprogs-1.41.6-X.tar.bz2
+  /usr/src/e2fsprogs-1.41.7-X-src.tar.bz2
+  /usr/src/e2fsprogs-1.41.7-X.tar.bz2
+  /usr/src/libblkid-devel-1.41.7-X.tar.bz2
+  /usr/src/libblkid1-1.41.7-X.tar.bz2
+  /usr/src/libcom_err-devel-1.41.7-X.tar.bz2
+  /usr/src/libcom_err2-1.41.7-X.tar.bz2
+  /usr/src/libe2p-devel-1.41.7-X.tar.bz2
+  /usr/src/libe2p2-1.41.7-X.tar.bz2
+  /usr/src/libext2fs-devel-1.41.7-X.tar.bz2
+  /usr/src/libext2fs2-1.41.7-X.tar.bz2
+  /usr/src/libss-devel-1.41.7-X.tar.bz2
+  /usr/src/libss2-1.41.7-X.tar.bz2
+  /usr/src/libuuid-devel-1.41.7-X.tar.bz2
+  /usr/src/libuuid1-1.41.7-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
+Files included in the binary packages:
 
+(e2fsprogs)
   /etc/mke2fs.conf
   /usr/bin/chattr.exe
   /usr/bin/compile_et
@@ -207,7 +220,7 @@ Files included in the binary package:
 
 Port Notes:
 
------ version 1.41.6-1 -----
+----- version 1.41.7-1 -----
 Initial release for Cygwin 1.7.
 
 
