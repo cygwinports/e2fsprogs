@@ -4,15 +4,15 @@ The Ext2 Filesystem Utilities contain all of the standard utilities for
 creating, fixing, configuring, and debugging ext2/3/4 filesystems.
 
 Runtime requirements:
-  cygwin-1.7.0-50
+  cygwin-1.7.0-51
   libgcc1-4.3.2-2
   libintl8-0.17-11
 
 Build requirements:
 (besides corresponding -devel packages)
   autoconf2.5-2.63-10
-  binutils-20080624-2
-  cygport-0.9.7-1
+  binutils-2.19.51-1
+  cygport-0.9.8-1
   gawk-3.1.6-2
   gcc4-core-4.3.2-2
   make-3.81-2
@@ -27,27 +27,27 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack e2fsprogs-1.41.7-X-src.tar.bz2
+  unpack e2fsprogs-1.41.8-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./e2fsprogs-1.41.7-X.cygport all
+  cygport ./e2fsprogs-1.41.8-X.cygport all
 
 This will create:
-  /usr/src/e2fsprogs-1.41.7-X-src.tar.bz2
-  /usr/src/e2fsprogs-1.41.7-X.tar.bz2
-  /usr/src/libblkid-devel-1.41.7-X.tar.bz2
-  /usr/src/libblkid1-1.41.7-X.tar.bz2
-  /usr/src/libcom_err-devel-1.41.7-X.tar.bz2
-  /usr/src/libcom_err2-1.41.7-X.tar.bz2
-  /usr/src/libe2p-devel-1.41.7-X.tar.bz2
-  /usr/src/libe2p2-1.41.7-X.tar.bz2
-  /usr/src/libext2fs-devel-1.41.7-X.tar.bz2
-  /usr/src/libext2fs2-1.41.7-X.tar.bz2
-  /usr/src/libss-devel-1.41.7-X.tar.bz2
-  /usr/src/libss2-1.41.7-X.tar.bz2
-  /usr/src/libuuid-devel-1.41.7-X.tar.bz2
-  /usr/src/libuuid1-1.41.7-X.tar.bz2
+  /usr/src/e2fsprogs-1.41.8-X-src.tar.bz2
+  /usr/src/e2fsprogs-1.41.8-X.tar.bz2
+  /usr/src/libblkid-devel-1.41.8-X.tar.bz2
+  /usr/src/libblkid1-1.41.8-X.tar.bz2
+  /usr/src/libcom_err-devel-1.41.8-X.tar.bz2
+  /usr/src/libcom_err2-1.41.8-X.tar.bz2
+  /usr/src/libe2p-devel-1.41.8-X.tar.bz2
+  /usr/src/libe2p2-1.41.8-X.tar.bz2
+  /usr/src/libext2fs-devel-1.41.8-X.tar.bz2
+  /usr/src/libext2fs2-1.41.8-X.tar.bz2
+  /usr/src/libss-devel-1.41.8-X.tar.bz2
+  /usr/src/libss2-1.41.8-X.tar.bz2
+  /usr/src/libuuid-devel-1.41.8-X.tar.bz2
+  /usr/src/libuuid1-1.41.8-X.tar.bz2
 
 -------------------------------------------
 
@@ -220,7 +220,7 @@ Files included in the binary packages:
 
 Port Notes:
 
------ version 1.41.7-1 -----
+----- version 1.41.8-1 -----
 Initial release for Cygwin 1.7.
 
 
