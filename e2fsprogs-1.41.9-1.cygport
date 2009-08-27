@@ -5,6 +5,8 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 PATCH_URI="1.41.6-shared-libs.patch
            1.41.6-mke2fs.patch"
 
+DISTCLEANFILES="lib/Makefile.cygwin-lib"
+
 PKG_NAMES="${PN}"
 e2fsprogs_CONTENTS="--exclude=*.dll --exclude=info --exclude=man3
                     etc/ usr/bin/ usr/lib/*.exe usr/sbin/ usr/share/"
@@ -38,15 +40,11 @@ CYGCONF_ARGS="
 
 src_install() {
 	cd ${B}
-	cyginstall install-libs
+	cyginstall install-libs LN="\$(LN_S)"
 
 	# cheap workaround for lack of .exe handling in install(1)
 	(
 	cd ${D}/usr/
-	for x in bin/*attr bin/uuidgen lib/e2initrd_helper sbin/*
-	do
-		mv ${x} ${x}.exe
-	done
-	strip bin/*.* lib/*.exe sbin/* || true
+	strip bin/*attr bin/uuidgen lib/e2initrd_helper sbin/*
 	)
 }
