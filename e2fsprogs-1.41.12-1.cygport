@@ -2,8 +2,10 @@ DESCRIPTION="Ext2 filesystem utilities"
 HOMEPAGE="http://e2fsprogs.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
-PATCH_URI="1.41.6-shared-libs.patch
-           1.41.6-mke2fs.patch"
+PATCH_URI="
+	1.41.6-shared-libs.patch
+	1.41.12-ext2fs_get_device_size.patch
+"
 
 DISTCLEANFILES="lib/Makefile.cygwin-lib"
 
@@ -41,10 +43,4 @@ CYGCONF_ARGS="
 src_install() {
 	cd ${B}
 	cyginstall install-libs LN="\$(LN_S)"
-
-	# cheap workaround for lack of .exe handling in install(1)
-	(
-	cd ${D}/usr/
-	strip bin/*attr bin/uuidgen lib/e2initrd_helper sbin/*
-	)
 }
