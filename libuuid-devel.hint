@@ -1,7 +1,0 @@
-category: System 
-requires: libuuid1
-external-source: e2fsprogs
-sdesc: "Universally Unique ID library (development)"
-ldesc: "The Ext2 Filesystem Utilities contain all of the standard 
-utilities for creating, fixing, configuring, and debugging ext2/3/4 
-filesystems."

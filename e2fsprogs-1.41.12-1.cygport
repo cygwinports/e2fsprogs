@@ -14,7 +14,7 @@ e2fsprogs_CONTENTS="--exclude=*.dll --exclude=info --exclude=man3
                     etc/ usr/bin/ usr/lib/*.exe usr/sbin/ usr/share/"
 
 # all libraries, name:ABI
-for l in blkid:1 com_err:2 e2p:2 ext2fs:2 ss:2 uuid:1
+for l in com_err:2 e2p:2 ext2fs:2 ss:2
 do
   PKG_NAMES+=" lib${l%:*}${l##*:} lib${l%:*}-devel"
   declare lib${l%:*}${l##*:}_CONTENTS="usr/bin/cyg${l%:*}-${l##*:}.dll"
@@ -38,6 +38,9 @@ CYGCONF_ARGS="
 	--disable-jbd-debug
 	--disable-blkid-debug
 	--disable-testio-debug
+	--disable-libblkid
+	--disable-libuuid
+	--disable-uuidd
 "
 
 src_install() {
