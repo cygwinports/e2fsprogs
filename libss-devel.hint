@@ -1,7 +1,0 @@
-category: System 
-requires: libss2 libcom_err-devel
-external-source: e2fsprogs
-sdesc: "Subsystem command parsing library (development)"
-ldesc: "The Ext2 Filesystem Utilities contain all of the standard 
-utilities for creating, fixing, configuring, and debugging ext2/3/4 
-filesystems."

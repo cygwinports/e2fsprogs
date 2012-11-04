@@ -85,13 +85,3 @@
 +	$(RM) -rf elfshared
 +	$(RM) -f $(CYGWIN_DLL)
 +	$(RM) -f ../$(CYGWIN_DLL) ../$(CYGWIN_IMPLIB)
---- origsrc/e2fsprogs-1.41.6/lib/uuid/Makefile.in	2009-02-14 07:49:08.000000000 -0600
-+++ src/e2fsprogs-1.41.6/lib/uuid/Makefile.in	2009-06-21 21:13:15.340434300 -0500
-@@ -176,6 +176,7 @@ distclean:: clean
- # Hack to parallel makes recognize dependencies correctly.
- #
- ../../lib/libuuid.a: libuuid.a
-+../../lib/libuuid.dll.a: image
- ../../lib/libuuid.so: image
- ../../lib/libuuid.dylib: image
- 
