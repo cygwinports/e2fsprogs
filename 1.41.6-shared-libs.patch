@@ -21,7 +21,7 @@
  	AC_MSG_RESULT([Enabling ELF shared libraries])
 --- origsrc/e2fsprogs-1.41.6/lib/Makefile.cygwin-lib	1969-12-31 18:00:00.000000000 -0600
 +++ src/e2fsprogs-1.41.6/lib/Makefile.cygwin-lib	2009-06-22 02:51:35.848631800 -0500
-@@ -0,0 +1,63 @@
+@@ -0,0 +1,64 @@
 +#
 +# This is a Makefile stub which handles the creation of Cygwin shared
 +# libraries.
@@ -38,8 +38,8 @@
 +all:: image
 +
 +real-subdirs:: Makefile
-+	@echo "	MKDIR elfshared"
-+	@mkdir -p elfshared
++	$(E) "	MKDIR elfshared"
++	$(Q) mkdir -p elfshared
 +
 +CYGWIN_DLL = $(ELF_IMAGE:lib%=cyg%)-$(ELF_SO_VERSION).dll
 +CYGWIN_IMPLIB = $(ELF_IMAGE).dll.a
@@ -47,34 +47,35 @@
 +image:		$(CYGWIN_DLL)
 +
 +$(CYGWIN_DLL): $(OBJS)
-+	@echo "	GEN_CYGWIN_DLL $(CYGWIN_DLL)"
-+	@(cd elfshared; $(CC) --shared -o $(CYGWIN_DLL) $(LDFLAGS) \
-+		-Wl,--enable-auto-image-base,--out-implib,$(CYGWIN_IMPLIB) $(OBJS) $(ELF_OTHER_LIBS))
-+	@$(MV) elfshared/$(CYGWIN_DLL) elfshared/$(CYGWIN_IMPLIB) .
-+	@$(RM) -f ../$(CYGWIN_IMPLIB)
-+	@$(LN) $(CYGWIN_IMPLIB) ../$(CYGWIN_IMPLIB)
++	$(E) "	GEN_CYGWIN_DLL $(CYGWIN_DLL)"
++	$(Q) (cd elfshared; $(CC) --shared -o $(CYGWIN_DLL) $(LDFLAGS) \
++		-Wl,--enable-auto-image-base,--out-implib,$(CYGWIN_IMPLIB) \
++		$(OBJS) -L$(top_builddir)/../lib $(ELF_OTHER_LIBS))
++	$(Q) $(MV) elfshared/$(CYGWIN_DLL) elfshared/$(CYGWIN_IMPLIB) .
++	$(Q) $(RM) -f ../$(CYGWIN_IMPLIB)
++	$(Q) $(LN) $(CYGWIN_IMPLIB) ../$(CYGWIN_IMPLIB)
 +
 +installdirs-elf-lib::
-+	@echo "	MKINSTALLDIRS $(ELF_INSTALL_DIR) $(bindir)"
-+	@$(MKINSTALLDIRS) $(DESTDIR)$(ELF_INSTALL_DIR) \
++	$(E) "	MKINSTALLDIRS $(ELF_INSTALL_DIR) $(bindir)"
++	$(Q) $(MKINSTALLDIRS) $(DESTDIR)$(ELF_INSTALL_DIR) \
 +		$(DESTDIR)$(bindir)
 +
 +installdirs:: installdirs-elf-lib
 +
 +install-shlibs install:: $(CYGWIN_DLL) installdirs-elf-lib
-+	@echo "	INSTALL-CYGWIN-DLL $(bindir)/$(CYGWIN_DLL)"
-+	@$(INSTALL_PROGRAM) $(CYGWIN_DLL) $(DESTDIR)$(bindir)/$(CYGWIN_DLL)
-+	@echo "	INSTALL-CYGWIN-IMPLIB $(ELF_INSTALL_DIR)/$(CYGWIN_IMPLIB)"
-+	@$(INSTALL_DATA) $(CYGWIN_IMPLIB) $(DESTDIR)$(ELF_INSTALL_DIR)/$(CYGWIN_IMPLIB)
++	$(E) "	INSTALL-CYGWIN-DLL $(bindir)/$(CYGWIN_DLL)"
++	$(Q) $(INSTALL_PROGRAM) $(CYGWIN_DLL) $(DESTDIR)$(bindir)/$(CYGWIN_DLL)
++	$(E) "	INSTALL-CYGWIN-IMPLIB $(ELF_INSTALL_DIR)/$(CYGWIN_IMPLIB)"
++	$(Q) $(INSTALL_DATA) $(CYGWIN_IMPLIB) $(DESTDIR)$(ELF_INSTALL_DIR)/$(CYGWIN_IMPLIB)
 +
 +install-strip: install
-+	@echo "	STRIP-DLL $(bindir)/$(CYGWIN_DLL)"
-+	@$(STRIP) --strip-unneeded --remove-section=.comment \
++	$(E) "	STRIP-DLL $(bindir)/$(CYGWIN_DLL)"
++	$(Q) $(STRIP) --strip-unneeded --remove-section=.comment \
 +		--remove-section=.note $(DESTDIR)$(bindir)/$(CYGWIN_DLL)
 +
 +install-shlibs-strip: install-shlibs
-+	@echo "	STRIP-DLL $(bindir)/$(CYGWIN_DLL)"
-+	@$(STRIP) --strip-unneeded --remove-section=.comment \
++	$(E) "	STRIP-DLL $(bindir)/$(CYGWIN_DLL)"
++	$(Q) $(STRIP) --strip-unneeded --remove-section=.comment \
 +		--remove-section=.note $(DESTDIR)$(bindir)/$(CYGWIN_DLL)
 +
 +uninstall-shlibs uninstall::
