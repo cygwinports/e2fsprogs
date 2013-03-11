@@ -1,5 +1,5 @@
 NAME="e2fsprogs"
-VERSION=1.42.6
+VERSION=1.42.7
 RELEASE=1
 CATEGORY="System"
 SUMMARY="Ext2/3/4 filesystem utilities"
@@ -57,5 +57,5 @@ CYGCONF_ARGS="
 
 src_install() {
 	cd ${B}
-	cyginstall install-libs LN="\$(LN_S)"
+	cygmake -j1 install install-libs DESTDIR=${D} LN="\$(LN_S)"
 }
