@@ -1,0 +1,14 @@
+Set in configure.in:BUILD_CFLAGS if !cross_compiling
+
+--- origsrc/e2fsprogs-1.42.10/util/subst.c	2014-05-15 12:04:08.000000000 -0500
++++ src/e2fsprogs-1.42.10/util/subst.c	2014-06-09 17:47:48.611974400 -0500
+@@ -5,7 +5,9 @@
+  *
+  */
+ 
++#ifdef HAVE_CONFIG_H
+ #include "config.h"
++#endif
+ #include <stdio.h>
+ #include <errno.h>
+ #include <stdlib.h>

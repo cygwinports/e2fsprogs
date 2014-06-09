@@ -1,5 +1,5 @@
 NAME="e2fsprogs"
-VERSION=1.42.7
+VERSION=1.42.10
 RELEASE=1
 CATEGORY="System"
 SUMMARY="Ext2/3/4 filesystem utilities"
@@ -11,19 +11,22 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 PATCH_URI="
 	1.41.6-shared-libs.patch
 	1.42.6-cygwin-getsize.patch
+	1.42.10-parallel-make.patch
 "
 
 DISTCLEANFILES="lib/Makefile.cygwin-lib"
 
-PKG_NAMES="${PN} libcom_err2 libcom_err-devel libe2p2 libe2p-devel
-           libext2fs2 libext2fs-devel libquota-devel libss2 libss-devel"
+PKG_NAMES="${NAME} libcom_err2 libcom_err-devel libe2p2 libe2p-devel
+           libext2fs2 libext2fs-devel libss2 libss-devel"
 e2fsprogs_CONTENTS="--exclude=*.dll --exclude=info --exclude=man3
-                    etc/ usr/bin/ usr/sbin/ usr/share/"
+	--exclude=compile_et* --exclude=mk_cmds* etc/ usr/bin/ usr/sbin/
+	usr/share/doc/ usr/share/locale/ usr/share/man/"
 libcom_err2_SUMMARY="Common error description library (runtime)"
 libcom_err2_CONTENTS="usr/bin/cygcom_err-2.dll"
 libcom_err_devel_SUMMARY="Common error description library (development)"
-libcom_err_devel_CONTENTS="usr/include/com_err.h usr/include/et/ usr/lib/libcom_err.*
-                           usr/lib/pkgconfig/com_err.pc usr/share/man/man3/com_err.*"
+libcom_err_devel_CONTENTS="usr/bin/compile_et usr/include/com_err.h
+	usr/include/et/ usr/lib/libcom_err.* usr/lib/pkgconfig/com_err.pc
+	usr/share/et/ usr/share/man/man1/compile_et.* usr/share/man/man3/com_err.*"
 libe2p2_SUMMARY="Ext2fs programs utility library (runtime)"
 libe2p2_CONTENTS="usr/bin/cyge2p-2.dll"
 libe2p_devel_SUMMARY="Ext2fs programs utility library (development)"
@@ -33,13 +36,11 @@ libext2fs2_CONTENTS="usr/bin/cygext2fs-2.dll"
 libext2fs_devel_SUMMARY="Ext2fs library (development)"
 libext2fs_devel_CONTENTS="usr/include/ext2fs/ usr/lib/libext2fs.*
                           usr/lib/pkgconfig/ext2fs.pc usr/share/info/libext2fs.*"
-libquota_devel_SUMMARY="Quota management library (development)"
-libquota_devel_REQUIRES="libext2fs-devel"
-libquota_devel_CONTENTS="usr/include/quota/ usr/lib/libquota.* usr/lib/pkgconfig/quota.pc"
 libss2_SUMMARY="Subsystem command parsing library (runtime)"
 libss2_CONTENTS="usr/bin/cygss-2.dll"
 libss_devel_SUMMARY="Subsystem command parsing library (development)"
-libss_devel_CONTENTS="usr/include/ss/ usr/lib/libss.* usr/lib/pkgconfig/ss.pc"
+libss_devel_CONTENTS="usr/bin/mk_cmds usr/include/ss/ usr/lib/libss.*
+	usr/lib/pkgconfig/ss.pc usr/share/man/man1/mk_cmds.* usr/share/ss/"
 
 CYGCONF_ARGS="
 	--enable-elf-shlibs
