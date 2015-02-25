@@ -1,7 +1,0 @@
---- origsrc/e2fsprogs-1.42.10/e2fsck/Makefile.in	2014-05-15 12:04:08.000000000 -0500
-+++ src/e2fsprogs-1.42.10/e2fsck/Makefile.in	2014-06-09 18:21:15.863362900 -0500
-@@ -552,3 +552,4 @@ logfile.o: $(srcdir)/logfile.c $(top_bui
-  $(top_srcdir)/lib/quota/dqblk_v2.h $(top_srcdir)/lib/quota/quotaio_tree.h \
-  $(top_srcdir)/lib/../e2fsck/dict.h
- prof_err.o: prof_err.c
-+quota.o: prof_err.h
