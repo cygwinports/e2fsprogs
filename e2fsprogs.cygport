@@ -1,6 +1,6 @@
 NAME="e2fsprogs"
 VERSION=1.42.12
-RELEASE=1
+RELEASE=2
 CATEGORY="System"
 SUMMARY="Ext2/3/4 filesystem utilities"
 DESCRIPTION="This package contains all of the standard utilities for creating,
@@ -10,6 +10,9 @@ SRC_URI="mirror://sourceforge/e2fsprogs/e2fsprogs-${VERSION}.tar.gz"
 PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/e2fsprogs.git/plain/e2fsprogs-1.40.4-sb_feature_check_ignore.patch
 	http://pkgs.fedoraproject.org/cgit/e2fsprogs.git/plain/e2fsprogs-1.42.12-use-after-free-fix.patch
+	http://pkgs.fedoraproject.org/cgit/e2fsprogs.git/plain/e2fsprogs-1.42.12-closefs-cve.patch
+	http://pkgs.fedoraproject.org/cgit/e2fsprogs.git/plain/e2fsprogs-1.42.12-dumpe2fs-segfault.patch
+	http://pkgs.fedoraproject.org/cgit/e2fsprogs.git/plain/e2fsprogs-1.42.12-resize2fs-fsck.patch
 	1.41.6-shared-libs.patch
 	1.42.6-cygwin-getsize.patch
 "
