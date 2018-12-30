@@ -1,5 +1,5 @@
---- origsrc/e2fsprogs-1.41.6/configure.in	2009-04-22 07:47:39.000000000 -0500
-+++ src/e2fsprogs-1.41.6/configure.in	2009-06-21 21:11:28.747174200 -0500
+--- origsrc/e2fsprogs-1.41.6/configure.ac	2009-04-22 07:47:39.000000000 -0500
++++ src/e2fsprogs-1.41.6/configure.ac	2009-06-21 21:11:28.747174200 -0500
 @@ -227,13 +227,17 @@ else
  	E2_PKG_CONFIG_STATIC=
  	ELF_CMT=
@@ -56,8 +56,8 @@
 +	$(Q) $(LN) $(CYGWIN_IMPLIB) ../$(CYGWIN_IMPLIB)
 +
 +installdirs-elf-lib::
-+	$(E) "	MKINSTALLDIRS $(ELF_INSTALL_DIR) $(bindir)"
-+	$(Q) $(MKINSTALLDIRS) $(DESTDIR)$(ELF_INSTALL_DIR) \
++	$(E) "	MKDIR_P $(ELF_INSTALL_DIR) $(bindir)"
++	$(Q) $(MKDIR_P) $(DESTDIR)$(ELF_INSTALL_DIR) \
 +		$(DESTDIR)$(bindir)
 +
 +installdirs:: installdirs-elf-lib
