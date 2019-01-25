@@ -1,6 +1,6 @@
 NAME="e2fsprogs"
 VERSION=1.44.5
-RELEASE=1
+RELEASE=2
 CATEGORY="System"
 SUMMARY="Ext2/3/4 filesystem utilities"
 DESCRIPTION="This package contains all of the standard utilities for creating,
@@ -10,6 +10,7 @@ SRC_URI="mirror://sourceforge/e2fsprogs/e2fsprogs-${VERSION}.tar.gz"
 PATCH_URI="
 	1.41.6-shared-libs.patch
 	1.42.6-cygwin-getsize.patch
+	1.44.5-cygwin-readline.patch
 	1.44.5-as-needed.patch
 	1.44.5-uuidd.patch
 "
@@ -60,6 +61,7 @@ libext2fs_devel_CONTENTS="
 	usr/share/info/libext2fs.*
 "
 libss2_SUMMARY="Subsystem command parsing library (runtime)"
+libss2_REQUIRES="libreadline7"
 libss2_CONTENTS="usr/bin/cygss-2.dll"
 libss_devel_SUMMARY="Subsystem command parsing library (development)"
 libss_devel_CONTENTS="

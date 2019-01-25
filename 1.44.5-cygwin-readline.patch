@@ -1,0 +1,14 @@
+--- origsrc/e2fsprogs-1.44.5/lib/ss/get_readline.c	2018-12-15 23:39:33.000000000 -0600
++++ src/e2fsprogs-1.44.5/lib/ss/get_readline.c	2019-01-24 12:20:35.498046900 -0600
+@@ -37,7 +37,11 @@ static void ss_release_readline(ss_data
+ #endif
+ 
+ /* Libraries we will try to use for readline/editline functionality */
++#ifdef __CYGWIN__
++#define DEFAULT_LIBPATH "cygreadline8.dll:cygreadline7.dll:cygreadline6.dll"
++#else
+ #define DEFAULT_LIBPATH "libreadline.so.7:libreadline.so.6:libreadline.so.5:libreadline.so.4:libreadline.so:libedit.so.2:libedit.so:libeditline.so.0:libeditline.so"
++#endif
+ 
+ #ifdef HAVE_DLOPEN
+ void ss_get_readline(int sci_idx)
