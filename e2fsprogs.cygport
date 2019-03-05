@@ -18,7 +18,7 @@ PATCH_URI="
 DISTCLEANFILES="lib/Makefile.cygwin-lib"
 
 PKG_NAMES="${NAME} libcom_err2 libcom_err-devel libe2p2 libe2p-devel
-           libext2fs2 libext2fs-devel libss2 libss-devel uuidd"
+           libext2fs2 libext2fs-devel libss2 libss-devel" # uuidd"
 e2fsprogs_CONTENTS="
 	--exclude=*.dll
 	--exclude=compile_et* --exclude=mk_cmds*
@@ -90,7 +90,6 @@ BUILD_REQUIRES="
 	texinfo
 "
 
-# uuidd: util-linux's version requires signalfd(2)
 CYGCONF_ARGS="
 	--enable-elf-shlibs
 	--disable-bsd-shlibs
@@ -98,7 +97,7 @@ CYGCONF_ARGS="
 	--disable-e2initrd-helper
 	--disable-libblkid
 	--disable-libuuid
-	--enable-uuidd
+	--disable-uuidd
 "
 
 src_install() {
@@ -108,7 +107,7 @@ src_install() {
 	# remove static libs
 	rm -f ${D}/usr/lib/lib{com_err,e2p,ext2fs,ss}.a
 	# for uuidd
-	keepdir /var/lib/libuuid /var/run/uuidd
+#	keepdir /var/lib/libuuid /var/run/uuidd
 }
 
 src_test() {
